@@ -14,7 +14,8 @@ import 'package:get/get.dart';
 
 class RecommendFoodDetail extends StatelessWidget {
   final int pageId;
-  RecommendFoodDetail({Key? key, required this.pageId}) : super(key: key);
+  final String page;
+  RecommendFoodDetail({Key? key, required this.pageId, required this.page}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,37 +36,41 @@ class RecommendFoodDetail extends StatelessWidget {
               children: [
                 GestureDetector(
                     onTap: (){
-                      Get.toNamed(RouteHelper.getInitial());
+                      if(page == "recommended"){
+                        Get.toNamed(RouteHelper.getCartPage());
+                      } else {
+                        Get.toNamed(RouteHelper.getInitial());
+                      }
                     },
                     child: AppIcon(icon: Icons.clear)),
                 GetBuilder<PopularProductController>(builder: (context){
                   var totalItems = Get.find<PopularProductController>().totalItems;
-                  return Stack(
-                    children: [
-                      AppIcon(icon: Icons.shopping_cart_outlined),
-                      totalItems >= 1 ?
-                      Positioned(
-                        right: 4,
-                        top: 4,
-                        child: GestureDetector(
-                          onTap: () {
-                            Get.to(() => CartPage());
-                          },
+                  return GestureDetector(
+                    onTap: () {
+                      Get.toNamed(RouteHelper.getCartPage());
+                    },
+                    child: Stack(
+                      children: [
+                        AppIcon(icon: Icons.shopping_cart_outlined),
+                        totalItems >= 1 ?
+                        Positioned(
+                          right: 4,
+                          top: 4,
                           child: AppIcon(icon: Icons.circle,
                             size: 16,
                             iconColor: Colors.transparent,
                             backgroundColor: AppColors.mainColor,),
-                        ),
-                      ) :
-                      Container(),
-                      totalItems >= 1 ?
-                      Positioned(
-                        right: 8,
-                        top: 5,
-                        child: BigText(text: totalItems.toString(), size: 12, color: Colors.white,),
-                      ) :
-                      Container()
-                    ],
+                        ) :
+                        Container(),
+                        totalItems >= 1 ?
+                        Positioned(
+                          right: 8,
+                          top: 5,
+                          child: BigText(text: totalItems.toString(), size: 12, color: Colors.white,),
+                        ) :
+                        Container()
+                      ],
+                    ),
                   );
                 })
               ],
