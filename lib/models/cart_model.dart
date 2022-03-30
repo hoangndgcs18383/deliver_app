@@ -1,3 +1,5 @@
+import 'package:deliver_app/models/products_%20model.dart';
+
 class CartModel {
   int? _id;
   String? _name;
@@ -6,6 +8,7 @@ class CartModel {
   int? _quantity;
   bool? _isExit;
   String? _time;
+  ProductModel? _product;
 
   CartModel(
       {int? id,
@@ -15,6 +18,7 @@ class CartModel {
         int? quantity,
         bool? isExit,
         String? time,
+        ProductModel? product
       }) {
     if (id != null) {
       this._id = id;
@@ -37,6 +41,9 @@ class CartModel {
     if(time != null){
       this._time = time;
     }
+    if(time != null){
+      this._product = product;
+    }
   }
 
   int? get id => _id;
@@ -53,6 +60,8 @@ class CartModel {
   set isExit(bool? isExit) => _isExit = isExit;
   String? get time => _time;
   set time(String? time) => _time = time;
+  ProductModel? get product => _product;
+  set product(ProductModel? product) => _product = product;
 
 
   CartModel.fromJson(Map<String, dynamic> json) {
@@ -63,6 +72,7 @@ class CartModel {
     _quantity = json['quantity'];
     _isExit = json['isExit'];
     time = json['time'];
+    product = ProductModel.fromJson(json['product']);
   }
 
   Map<String, dynamic> toJson() {
@@ -74,6 +84,7 @@ class CartModel {
     data['quantity'] = this.quantity;
     data['isExit'] = this.isExit;
     data['time'] = this.time;
+    data['product'] = this.product;
     return data;
   }
 }

@@ -40,6 +40,7 @@ class _BodyFoodPageState extends State<BodyFoodPage> {
   @override
   void dispose(){
     pageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -110,7 +111,7 @@ class _BodyFoodPageState extends State<BodyFoodPage> {
               itemBuilder: (context, index){
                 return GestureDetector(
                   onTap: () {
-                    Get.toNamed(RouteHelper.getRecommendedFood(index));
+                    Get.toNamed(RouteHelper.getRecommendedFood(index, "recommended"));
                   },
                   child: Container(
                     margin: EdgeInsets.only(left: Dimemsions.width20, right: Dimemsions.width20, bottom: Dimemsions.height10),
@@ -205,7 +206,7 @@ class _BodyFoodPageState extends State<BodyFoodPage> {
         children: [
             GestureDetector(
               onTap: () {
-                Get.toNamed(RouteHelper.getPopularFood(index));
+                Get.toNamed(RouteHelper.getPopularFood(index, "home"));
               },
               child: Container(
               height: Dimemsions.pageViewContainer,
