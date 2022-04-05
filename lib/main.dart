@@ -2,6 +2,8 @@ import 'package:deliver_app/controllers/cart_controller.dart';
 import 'package:deliver_app/controllers/popular_product_controller.dart';
 import 'package:deliver_app/controllers/recommended_product_controller.dart';
 import 'package:deliver_app/routes/route_helper.dart';
+import 'package:deliver_app/screens/auth/sign_in_page.dart';
+import 'package:deliver_app/screens/auth/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'helper/dependencies.dart' as depend;
@@ -24,9 +26,9 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          // home: MainFoodPage(),
-          initialRoute: RouteHelper.getSplashPage(),
-          getPages: RouteHelper.routes,
+           home: SignInPage(),
+          /*initialRoute: RouteHelper.getSplashPage(),
+          getPages: RouteHelper.routes,*/
         );
       });
     });

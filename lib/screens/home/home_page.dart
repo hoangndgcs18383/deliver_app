@@ -1,3 +1,6 @@
+import 'package:deliver_app/screens/account/account_page.dart';
+import 'package:deliver_app/screens/auth/sign_up_page.dart';
+import 'package:deliver_app/screens/card/cart_history.dart';
 import 'package:deliver_app/screens/home/main_food_page.dart';
 import 'package:deliver_app/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,7 +23,8 @@ class _HomePageState extends State<HomePage> {
 
   List pages = [
     MainFoodPage(),
-    Container()
+    Container(),
+    CartHistory(),
   ];
 
   void onTapNav(int index){
@@ -29,23 +33,23 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  /*  @override
+    @override
   void initState() {
     super.initState();
     _controller = PersistentTabController(initialIndex: 0);
 
-  }*/
+  }
 
-  /*List<Widget> _buildScreens() {
+  List<Widget> _buildScreens() {
     return [
       MainFoodPage(),
-      MainFoodPage(),
-      MainFoodPage(),
-      MainFoodPage(),
+      SignUpPage(),
+      CartHistory(),
+      AccountPage(),
     ];
-  }*/
+  }
 
-  /*List<PersistentBottomNavBarItem> _navBarsItems() {
+  List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.home),
@@ -72,9 +76,9 @@ class _HomePageState extends State<HomePage> {
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
     ];
-  }*/
+  }
 
-  @override
+/*  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: MainFoodPage(),
@@ -111,9 +115,9 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
-  }
+  }*/
 
-  /*@override
+  @override
   Widget build(BuildContext context) {
     return PersistentTabView(
       context,
@@ -141,7 +145,7 @@ class _HomePageState extends State<HomePage> {
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle: NavBarStyle.style1, // Choose the nav bar style with this property.
+      navBarStyle: NavBarStyle.style3, // Choose the nav bar style with this property.
     );
-  }*/
+  }
 }
