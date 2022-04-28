@@ -7,9 +7,11 @@ import 'package:flutter/material.dart';
 
 class AppColumn extends StatelessWidget {
   final String text;
+  final int star;
   AppColumn({
     Key? key,
-    required this.text
+    required this.text,
+    this.star = 5,
   }) : super(key: key);
 
   @override
@@ -23,10 +25,10 @@ class AppColumn extends StatelessWidget {
         Row(
           children: [
             Wrap(
-              children: List.generate(5, (index) => Icon(Icons.star, color: AppColors.mainColor, size: 14,)),
+              children: List.generate(star, (index) => Icon(Icons.star, color: AppColors.mainColor, size: 14,)),
             ),
             SizedBox(width: 10,),
-            SmallText(text: "4.5",),
+            SmallText(text: "${star}",),
             SizedBox(width: 10,),
             SmallText(text: "1287",),
             SizedBox(width: 5,),

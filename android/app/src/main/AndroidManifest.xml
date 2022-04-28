@@ -1,12 +1,19 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.deliver_app.deliver_app">
+    <!-- INTERNET - API    -->
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <!--   GG MAP -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
    <application
         android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
         android:label="deliver_app"
         android:icon="@mipmap/ic_launcher">
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyBfqiAjQxvvbywaSLkBl5SpkmNv-fVzt1s"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -1,4 +1,4 @@
-import 'package:deliver_app/models/products_%20model.dart';
+import 'package:deliver_app/models/products_model.dart';
 
 class CartModel {
   int? _id;

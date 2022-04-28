@@ -1,7 +1,7 @@
 import 'package:deliver_app/controllers/cart_controller.dart';
 import 'package:deliver_app/controllers/popular_product_controller.dart';
 import 'package:deliver_app/routes/route_helper.dart';
-import 'package:deliver_app/screens/card/cart_page.dart';
+import 'package:deliver_app/screens/cart/cart_page.dart';
 import 'package:deliver_app/screens/home/main_food_page.dart';
 import 'package:deliver_app/utils/app_constants.dart';
 import 'package:deliver_app/utils/colors.dart';
@@ -118,9 +118,20 @@ class PopularFoodDetail extends StatelessWidget {
                       BigText(text: "Introduce"),
                       SizedBox(height: Dimemsions.height20),
                       // expandable text
-                      Expanded(
-                          child: ExpandableTextWidget(
-                              text:  product.description!))
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        padding: EdgeInsets.only(right: Dimemsions.width20, bottom: Dimemsions.height20+Dimemsions.height30),
+                        height: Dimemsions.height20*8,
+                        child: Column(
+                          children: [
+                            Expanded(
+                                child: SingleChildScrollView(
+                                  child: ExpandableTextWidget(
+                                      text:  product.description!),
+                                )),
+                          ],
+                        ),
+                      )
                     ],
                   )))
         ],

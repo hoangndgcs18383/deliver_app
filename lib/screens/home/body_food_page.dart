@@ -1,8 +1,8 @@
+
 import 'package:deliver_app/controllers/popular_product_controller.dart';
 import 'package:deliver_app/controllers/recommended_product_controller.dart';
-import 'package:deliver_app/models/products_%20model.dart';
+import 'package:deliver_app/models/products_model.dart';
 import 'package:deliver_app/routes/route_helper.dart';
-import 'package:deliver_app/screens/food/popular_food_detail.dart';
 import 'package:deliver_app/utils/app_constants.dart';
 import 'package:deliver_app/utils/colors.dart';
 import 'package:deliver_app/utils/dimemsions.dart';
@@ -79,7 +79,7 @@ class _BodyFoodPageState extends State<BodyFoodPage> {
             ),
           );
         }),
-        //popular text
+        //recommend text
         SizedBox(height: Dimemsions.height30,),
         Container(
           margin: EdgeInsets.only(left: Dimemsions.width30),
@@ -151,7 +151,7 @@ class _BodyFoodPageState extends State<BodyFoodPage> {
                                 children: [
                                   BigText(text: item[index].name!),
                                   SizedBox(height: Dimemsions.height10,),
-                                  SmallText(text: "With chinese characteristics"),
+                                  Expanded(child: SmallText(text: item[index].description!)),
                                   SizedBox(height: Dimemsions.height10,),
                                   Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -173,7 +173,7 @@ class _BodyFoodPageState extends State<BodyFoodPage> {
               }) : CircularProgressIndicator(
             color: AppColors.mainColor,
           );
-        })
+        }),
       ],
     );
   }
@@ -206,7 +206,7 @@ class _BodyFoodPageState extends State<BodyFoodPage> {
         children: [
             GestureDetector(
               onTap: () {
-                Get.toNamed(RouteHelper.getPopularFood(index, "home"));
+                Get.toNamed(RouteHelper.getPopularFood(index, "popular_page"));
               },
               child: Container(
               height: Dimemsions.pageViewContainer,
@@ -249,7 +249,7 @@ class _BodyFoodPageState extends State<BodyFoodPage> {
                 ),
                 child: Container(
                   padding: EdgeInsets.only(top: Dimemsions.height15, left: 15, right: 15),
-                  child: AppColumn(text: item.name!,)
+                  child: AppColumn(text: item.name!, star: item.stars!,)
                 ),
               ),
             )

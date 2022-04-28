@@ -1,6 +1,7 @@
 import 'package:deliver_app/screens/account/account_page.dart';
+import 'package:deliver_app/screens/auth/sign_in_page.dart';
 import 'package:deliver_app/screens/auth/sign_up_page.dart';
-import 'package:deliver_app/screens/card/cart_history.dart';
+import 'package:deliver_app/screens/cart/cart_history.dart';
 import 'package:deliver_app/screens/home/main_food_page.dart';
 import 'package:deliver_app/utils/colors.dart';
 import 'package:flutter/cupertino.dart';
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
   List<Widget> _buildScreens() {
     return [
       MainFoodPage(),
-      SignUpPage(),
+      SignInPage(),
       CartHistory(),
       AccountPage(),
     ];
@@ -145,7 +146,7 @@ class _HomePageState extends State<HomePage> {
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle: NavBarStyle.style3, // Choose the nav bar style with this property.
+      navBarStyle: NavBarStyle.style14, // Choose the nav bar style with this property.
     );
   }
 }

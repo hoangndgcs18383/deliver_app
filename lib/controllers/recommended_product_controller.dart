@@ -1,6 +1,6 @@
 import 'package:deliver_app/data/repository/popular_product_repo.dart';
 import 'package:deliver_app/data/repository/recommended_product_repo.dart';
-import 'package:deliver_app/models/products_%20model.dart';
+import 'package:deliver_app/models/products_model.dart';
 import 'package:get/get.dart';
 
 class RecommendedProductController extends GetxController {

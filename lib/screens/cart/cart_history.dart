@@ -74,17 +74,14 @@ class CartHistory extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    AppIcon(icon: Icons.shopping_cart_outlined,
-                      iconColor: AppColors.mainColor,
-                    ),
                     GestureDetector(
-                      onTap: () {
-
+                      onTap: (){
+                        Get.toNamed(RouteHelper.getCartPage());
                       },
-                      child: AppIcon(icon: Icons.delete_outline,
+                      child: AppIcon(icon: Icons.shopping_cart_outlined,
                         iconColor: AppColors.mainColor,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ],

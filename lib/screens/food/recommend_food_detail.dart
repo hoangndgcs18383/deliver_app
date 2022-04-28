@@ -2,7 +2,7 @@ import 'package:deliver_app/controllers/cart_controller.dart';
 import 'package:deliver_app/controllers/popular_product_controller.dart';
 import 'package:deliver_app/controllers/recommended_product_controller.dart';
 import 'package:deliver_app/routes/route_helper.dart';
-import 'package:deliver_app/screens/card/cart_page.dart';
+import 'package:deliver_app/screens/cart/cart_page.dart';
 import 'package:deliver_app/utils/app_constants.dart';
 import 'package:deliver_app/utils/colors.dart';
 import 'package:deliver_app/utils/dimemsions.dart';
@@ -37,9 +37,10 @@ class RecommendFoodDetail extends StatelessWidget {
                 GestureDetector(
                     onTap: (){
                       if(page == "recommended"){
-                        Get.toNamed(RouteHelper.getCartPage());
-                      } else {
                         Get.toNamed(RouteHelper.getInitial());
+                       /* Get.toNamed(RouteHelper.getCartPage());*/
+                      } else {
+                        Get.toNamed(RouteHelper.getCartPage());
                       }
                     },
                     child: AppIcon(icon: Icons.clear)),
@@ -137,7 +138,7 @@ class RecommendFoodDetail extends StatelessWidget {
                       iconSize: Dimemsions.iconSize24,
                     ),
                   ),
-                  BigText(text: "\$  ${product.price!} X ${context.inCartItems}", color: AppColors.mainBlackColor, size: Dimemsions.font26,),
+                  BigText(text: "\$ ${product.price!} X ${context.inCartItems}", color: AppColors.mainBlackColor, size: Dimemsions.font26,),
                   GestureDetector(
                     onTap: () {
                       context.setQuantity(true);

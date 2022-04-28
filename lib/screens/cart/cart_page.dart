@@ -1,5 +1,7 @@
 import 'package:deliver_app/base/no_data_page.dart';
+import 'package:deliver_app/controllers/auth_controller.dart';
 import 'package:deliver_app/controllers/cart_controller.dart';
+import 'package:deliver_app/controllers/location_controller.dart';
 import 'package:deliver_app/controllers/popular_product_controller.dart';
 import 'package:deliver_app/controllers/recommended_product_controller.dart';
 import 'package:deliver_app/routes/route_helper.dart';
@@ -29,11 +31,16 @@ class CartPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  AppIcon(
-                    icon: Icons.arrow_back_ios,
-                    iconColor: Colors.white,
-                    backgroundColor: AppColors.mainColor,
-                    iconSize: Dimemsions.iconSize24,
+                  GestureDetector(
+                    onTap: (){
+                      Get.back();
+                    },
+                    child: AppIcon(
+                      icon: Icons.arrow_back_ios,
+                      iconColor: Colors.white,
+                      backgroundColor: AppColors.mainColor,
+                      iconSize: Dimemsions.iconSize24,
+                    ),
                   ),
                   SizedBox(width: Dimemsions.width20*5,),
                   GestureDetector(
@@ -229,8 +236,16 @@ class CartPage extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  //context.addItem(product);
-                  cartController.addToHistory();
+                  if (Get.find<AuthController>().userLoggedIn()){
+                    cartController.addToHistory();
+                   /* if(Get.find<LocationController>().addressList.isEmpty){
+                      Get.toNamed(RouteHelper.getAddAddressPage());
+                    } else{
+                      Get.offNamed(RouteHelper.getInitial());
+                    }*/
+                  } else {
+                    Get.toNamed(RouteHelper.getSignInPage());
+                  }
                 },
                 child: Container(
                   padding: EdgeInsets.only(

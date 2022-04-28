@@ -1,7 +1,7 @@
 import 'package:deliver_app/controllers/cart_controller.dart';
 import 'package:deliver_app/data/repository/popular_product_repo.dart';
 import 'package:deliver_app/models/cart_model.dart';
-import 'package:deliver_app/models/products_%20model.dart';
+import 'package:deliver_app/models/products_model.dart';
 import 'package:deliver_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -45,7 +45,7 @@ class PopularProductController extends GetxController {
       _isLoaded = true;
       update();
     } else {
-
+      print("Can't not get popular product list");
     }
   }
 
